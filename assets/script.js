@@ -49,8 +49,8 @@ buttonPrevious.addEventListener("click", () => {
 
 	slideIndex-- ;
 
-	if(slideIndex < 1) {
-		slideIndex = slides.length - 1;
+	if(slideIndex < 0) {
+		slideIndex = slides.length - 1 ;
 	}
 
 	// On change le bullet point actif au suivant	 

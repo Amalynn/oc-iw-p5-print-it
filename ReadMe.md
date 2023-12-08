@@ -27,7 +27,7 @@ The purpose of this project is to improve user experience with implementing a ca
 
 ### Screenshot
 
-![Desktop solution screenshot](./assets/images/screenshot-print-it.png);
+![Desktop solution screenshot](./assets/images/screenshot-print-it.png)
 
 
 ### Links
