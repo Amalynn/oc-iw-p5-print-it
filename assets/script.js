@@ -1,3 +1,5 @@
+/* --------------------------------------------------------------------------------- */
+// Images du carrousel
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -17,13 +19,14 @@ const slides = [
 	}
 ]
 
-let arrowLeft = document.querySelector(".arrow_left") ;
-let arrowRight = document.querySelector(".arrow_right") ;
+/* ------------------------------------------------------------------------------------------ */
+// Récupération des éléments pour l'intéraction
+let buttonPrevious = document.querySelector(".arrow_left") ;
+let buttonNext = document.querySelector(".arrow_right") ;
 let dots = document.querySelector(".dots") ;
-let p = document.querySelector("#banner p");
-let bannerImg = document.querySelector('#banner .banner-img');
+let bannerParagraphe = document.querySelector("#banner p");
+let bannerImage = document.querySelector('#banner .banner-img');
 
-let pathSlideshowImages = "./assets/images/slideshow/" ;
 
 // Création des bullets points
 for(let i = 0; i < slides.length; i++) {
@@ -32,6 +35,7 @@ for(let i = 0; i < slides.length; i++) {
 	dots.appendChild(span);
 }
 
+
 // Etat initial - Premier dot sélectionné
 let slideIndex = 0;
 
@@ -39,8 +43,8 @@ let listeDotSpan = document.querySelectorAll(".dot");
 listeDotSpan[slideIndex].classList.add("dot_selected");
 
 
-// Modification du slide au clic sur le bouton gauche
-arrowLeft.addEventListener("click", () => {
+// Changement d'image au clic sur le bouton gauche
+buttonPrevious.addEventListener("click", () => {
 	listeDotSpan[slideIndex].classList.remove("dot_selected");
 
 	slideIndex-- ;
@@ -52,16 +56,16 @@ arrowLeft.addEventListener("click", () => {
 	// On change le bullet point actif au suivant	 
 	listeDotSpan[slideIndex].classList.add("dot_selected");
 
-	// Mise à jour de l'image et du texte du slider
+	// Mise à jour de l'image et du texte du carrousel
 	let slidesTextContent = slides[slideIndex].tagLine ;
-	let pathSlidesImage = pathSlideshowImages + slides[slideIndex].image  ;
-
-	p.innerHTML = slidesTextContent ;
-	bannerImg.src = pathSlidesImage;
+	
+	bannerParagraphe.innerHTML = slidesTextContent ;
+	bannerImage.src = `./assets/images/slideshow/${slides[slideIndex].image}` ;
 })
 
-// Modification du slide au clique sur le bouton droit
-arrowRight.addEventListener("click", () => {
+
+// Changement d'image au clic sur le bouton droit
+buttonNext.addEventListener("click", () => {
 	listeDotSpan[slideIndex].classList.remove("dot_selected");
 		
 	slideIndex++ ;		
@@ -75,8 +79,7 @@ arrowRight.addEventListener("click", () => {
 
 	// Mise à jour de l'image et du texte du slider
 	let slidesTextContent = slides[slideIndex].tagLine ;
-	let pathSlidesImage = pathSlideshowImages + slides[slideIndex].image  ;
-
-	p.innerHTML = slidesTextContent ;
-	bannerImg.src = pathSlidesImage;
+	
+	bannerParagraphe.innerHTML = slidesTextContent ;
+	bannerImage.src = `./assets/images/slideshow/${slides[slideIndex].image}` ;
 })
